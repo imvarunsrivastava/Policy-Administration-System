@@ -22,18 +22,18 @@ public class BusinessMaster {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long businessMasterId;
 
-	@NotBlank
+	@NotBlank(message = "Business Category should not be empty")
 	@Size(max = 40)
 	private String businessCategory;
 
-	@NotBlank
+	@NotBlank(message = "BusinessType should not be empty")
 	@Size(max = 40)
 	private String businessType;
 
-	@NotNull
+	@NotNull(message = "Total Employees should not be empty")
 	private Long totalEmployees;
 
-	@NotNull
+	@NotNull(message = "Business Age should not be empty")
 	private Long businessAge;
 
 }

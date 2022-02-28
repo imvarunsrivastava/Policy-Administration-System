@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cts.consumer.entity.Property;
+import com.cts.consumer.exception.ConsumerException;
+import com.cts.consumer.payload.request.BusinessPropertyRequest;
 import com.cts.consumer.payload.request.ConsumerBusinessRequest;
 import com.cts.consumer.payload.response.ConsumerBusinessDetails;
-import com.cts.consumer.repository.BusinessRepository;
-import com.cts.consumer.repository.ConsumerRepository;
-import com.cts.consumer.service.ConsumerService;
+import com.cts.consumer.service.BusinessPropertyService;
+import com.cts.consumer.service.ConsumerBusinessService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,13 +27,10 @@ import lombok.extern.slf4j.Slf4j;
 public class ConsumerController {
 
 	@Autowired
-	private ConsumerService consumerService;
+	private ConsumerBusinessService consumerService;
 
 	@Autowired
-	private ConsumerRepository consumerRepository;
-
-	@Autowired
-	private BusinessRepository businessRepository;
+	private BusinessPropertyService businessPropertyService;
 
 	@PostMapping("/createConsumerBusiness")
 	public ResponseEntity<String> createConsumerBusiness(
@@ -43,16 +42,6 @@ public class ConsumerController {
 	@PutMapping("/updateConsumerBusiness")
 	public ResponseEntity<String> updateConsumerBusiness(@RequestBody ConsumerBusinessDetails consumerBusinessDetails) {
 		log.info("Start updateConsumerBusiness inside ConsumerController");
-
-		if (!consumerRepository.existsById(consumerBusinessDetails.getConsumerId())) {
-			return new ResponseEntity<>("Sorry!!, No Consumer Found!!", HttpStatus.OK);
-		}
-		if (!businessRepository.existsByConsumerId(consumerBusinessDetails.getConsumerId())) {
-			return new ResponseEntity<>("Sorry!!, No Business Found!!", HttpStatus.OK);
-		}
-		if (!businessRepository.existsById(consumerBusinessDetails.getBusinessId())) {
-			return new ResponseEntity<>("Sorry!!, No Business Found!!", HttpStatus.OK);
-		}
 		log.info("End updateConsumerBusiness inside ConsumerController");
 		return new ResponseEntity<>(consumerService.updateConsumerBusiness(consumerBusinessDetails), HttpStatus.OK);
 
@@ -61,16 +50,41 @@ public class ConsumerController {
 	@GetMapping("/viewConsumerBusiness/{consumerId}")
 	public ResponseEntity<?> getConsumerBusiness(@PathVariable("consumerId") long consumerId) {
 		log.info("Start getConsumerBusiness inside ConsumerController");
-		if (!consumerRepository.existsById(consumerId)) {
-			return ResponseEntity.badRequest().body("Sorry!!, No Consumer Found!!");
-		}
-		if (!businessRepository.existsByConsumerId(consumerId)) {
-			return ResponseEntity.badRequest().body("Sorry!!, No Business Found!!");
-		}
+
 		ConsumerBusinessDetails consumerBusinessDetails = consumerService.getConsumerBusiness(consumerId);
 		log.debug("ConsumerBusiness Details: {}", consumerBusinessDetails);
 		log.info("End getConsumerBusiness inside ConsumerController");
 		return ResponseEntity.ok(consumerBusinessDetails);
+	}
+
+	@PostMapping("/createBusinessProperty")
+	public ResponseEntity<String> createBusinessProperty(
+			@Valid @RequestBody BusinessPropertyRequest businessPropertyRequest) throws Exception {
+		log.info("Start createBusinessProperty inside ConsumerController");
+		String response = businessPropertyService.createBusinessProperty(businessPropertyRequest);
+		log.debug(response);
+		log.info("End createBusinessProperty inside ConsumerController");
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@PutMapping("/updateBusinessProperty")
+	public ResponseEntity<String> updateBusinessProperty(
+			@Valid @RequestBody BusinessPropertyRequest businessPropertyRequest) throws ConsumerException {
+		log.info("Start updateBusinessProperty inside ConsumerController");
+		String response = businessPropertyService.updateBusinessProperty(businessPropertyRequest);
+		log.debug(response);
+		log.info("End updateBusinessProperty inside ConsumerController");
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@GetMapping("/viewConsumerProperty/{consumerId}/{propertyId}")
+	public Property getBusinessProperty(@PathVariable("consumerId") long consumerId,
+			@PathVariable("propertyId") long propertyId) throws ConsumerException {
+		log.info("Start getBusinessProperty inside ConsumerController");
+		Property property = businessPropertyService.getBusinessProperty(consumerId, propertyId);
+		log.debug("Property Details : {}", property);
+		log.info("End getBusinessProperty inside ConsumerController");
+		return property;
 	}
 
 }

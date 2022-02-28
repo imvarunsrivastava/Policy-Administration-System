@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 import com.cts.consumer.entity.Business;
 import com.cts.consumer.entity.BusinessMaster;
 import com.cts.consumer.entity.Consumer;
-import com.cts.consumer.exception.ConsumerBusinessNotFoundException;
-import com.cts.consumer.exception.ConsumerNotFoundException;
+import com.cts.consumer.exception.ConsumerException;
 import com.cts.consumer.payload.request.ConsumerBusinessRequest;
 import com.cts.consumer.payload.response.ConsumerBusinessDetails;
 import com.cts.consumer.repository.BusinessMasterRepository;
@@ -20,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class ConsumerServiceImpl implements ConsumerService {
+public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 
 	@Autowired
 	private ConsumerRepository consumerRepository;
@@ -41,7 +40,6 @@ public class ConsumerServiceImpl implements ConsumerService {
 
 		if (businessMaster != null && businessMaster.getTotalEmployees() <= consumerBusinessRequest.getTotalEmployees()
 				&& businessMaster.getBusinessAge() <= consumerBusinessRequest.getBusinessAge()) {
-			log.info("End createConsumerBusiness inside ConsumerServiceImpl");
 
 			Consumer consumer = new Consumer(consumerBusinessRequest.getName(), consumerBusinessRequest.getDob(),
 					consumerBusinessRequest.getBusinessName(), consumerBusinessRequest.getPanDetails(),
@@ -69,7 +67,7 @@ public class ConsumerServiceImpl implements ConsumerService {
 					+ " and Business ID :" + businesssave.getBusinessId() + " . Thank you!!";
 		}
 		log.info("End createConsumerBusiness inside ConsumerServiceImpl");
-		return "Sorry!!, You are Not Eligibile for Insurance";
+		return "Sorry!!, Consumer is Not Eligibile for Insurance";
 	}
 
 	public Long calBusinessValue(Long businessturnover, Long capitalinvested) {
@@ -95,24 +93,67 @@ public class ConsumerServiceImpl implements ConsumerService {
 	}
 
 	@Override
-	public String updateConsumerBusiness(ConsumerBusinessDetails consumerBusinessDetails) {
+	public String updateConsumerBusiness(ConsumerBusinessDetails consumerBusinessDetails) throws ConsumerException {
 		log.info("Start updateConsumerBusiness inside ConsumerServiceImpl");
+		Optional<Consumer> optionalConsumer = Optional
+				.ofNullable(consumerRepository.findById(consumerBusinessDetails.getConsumerId())
+						.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
+		Optional<Business> optionalBusiness = Optional
+				.ofNullable(businessRepository.findById(consumerBusinessDetails.getConsumerId())
+						.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
+		Consumer consumer = optionalConsumer.get();
+		Business business = optionalBusiness.get();
 
+		BusinessMaster businessMaster = businessMasterRepository.findByBusinessCategoryAndBusinessType(
+				consumerBusinessDetails.getBusinessCategory(), consumerBusinessDetails.getBusinessType());
+		log.debug("Business Master {}", businessMaster);
+
+		if (businessMaster != null && businessMaster.getTotalEmployees() <= consumerBusinessDetails.getTotalEmployees()
+				&& businessMaster.getBusinessAge() <= consumerBusinessDetails.getBusinessAge()) {
+
+			consumer.setName(consumerBusinessDetails.getName());
+			consumer.setAgentId(consumerBusinessDetails.getAgentId());
+			consumer.setAgentName(consumerBusinessDetails.getAgentName());
+			consumer.setBusinessName(consumerBusinessDetails.getBusinessName());
+			consumer.setBusinessOverview(consumerBusinessDetails.getBusinessOverview());
+			consumer.setDob(consumerBusinessDetails.getDob());
+			consumer.setEmail(consumerBusinessDetails.getEmail());
+			consumer.setPanDetails(consumerBusinessDetails.getPanDetails());
+			consumer.setPhone(consumerBusinessDetails.getPhone());
+			consumer.setValidity(consumerBusinessDetails.getValidity());
+
+			business.setBusinessAge(consumerBusinessDetails.getBusinessAge());
+			business.setBusinessTurnover(consumerBusinessDetails.getBusinessTurnover());
+			business.setBusinessValue(consumerBusinessDetails.getBusinessValue());
+			business.setCapitalInvested(consumerBusinessDetails.getCapitalInvested());
+			business.setTotalEmployees(consumerBusinessDetails.getTotalEmployees());
+
+			Consumer consumerSave = consumerRepository.save(consumer);
+			log.debug("Consumer saved : {}", consumerSave);
+			Business businessSave = businessRepository.save(business);
+			log.debug("Business saved : {}", businessSave);
+			log.info("End updateConsumerBusiness inside ConsumerServiceImpl");
+			return "SuccessFully Updated Consumer with Consumer ID :" + consumerSave.getConsumerId()
+					+ " and Business ID :" + businessSave.getBusinessId() + " . Thank you!!";
+		}
 		log.info("End updateConsumerBusiness inside ConsumerServiceImpl");
-		return "";
+		return "Sorry!!, Consumer is Not Eligibile for Insurance";
 	}
 
 	@Override
-	public ConsumerBusinessDetails getConsumerBusiness(long consumerId) throws ConsumerNotFoundException {
+	public ConsumerBusinessDetails getConsumerBusiness(long consumerId) throws ConsumerException {
 		log.info("Start getConsumerBusiness inside ConsumerServiceImpl");
 
-		Optional<Consumer> consumer = Optional.ofNullable(
-				consumerRepository.findById(consumerId).orElseThrow(() -> new ConsumerBusinessNotFoundException("")));
-		log.debug("Consumer List : {}", consumer);
+		Optional<Consumer> consumer = Optional.ofNullable(consumerRepository.findById(consumerId)
+				.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
 		Consumer consumers = consumer.get();
 		log.debug("Consumer : {}", consumers);
-		Business business = businessRepository.findByConsumerId(consumerId);
+		
+		Optional<Business> optionalBusiness = Optional.ofNullable(businessRepository.findById(consumerId)
+				.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
+		Business business = optionalBusiness.get();
 		log.debug("Business : {}", business);
+		
 		ConsumerBusinessDetails consumerBusinessDetails = new ConsumerBusinessDetails(consumers.getName(),
 				consumers.getDob(), consumers.getBusinessName(), consumers.getPanDetails(), consumers.getEmail(),
 				consumers.getPhone(), consumers.getBusinessOverview(), consumers.getValidity(),
@@ -125,30 +166,6 @@ public class ConsumerServiceImpl implements ConsumerService {
 		log.debug("ConsumerBusinessDetails : {}", consumerBusinessDetails);
 		log.info("End getConsumerBusiness with  inside ConsumerServiceImpl");
 		return consumerBusinessDetails;
-
-	}
-
-	public Long calPropertyValue(Long costoftheasset, Long salvagevalue, Long usefullifeoftheAsset) {
-		log.info("Start calPropertyValue");
-		if (usefullifeoftheAsset == 0 || salvagevalue == 0 || costoftheasset == 0 || (costoftheasset == salvagevalue)) {
-			throw new NullPointerException("NullPointerException in calPropertyValue");
-		}
-		Double x_ratio = (double) ((costoftheasset - salvagevalue) / usefullifeoftheAsset);
-		log.debug("x_ratio : {}", x_ratio);
-		Double Range_min = 0D;
-		Double Range_max = 10D;
-		Double x_max = (double) (costoftheasset / usefullifeoftheAsset);
-		log.debug("x_max : {}", x_max);
-		Double x_min = (double) (salvagevalue / usefullifeoftheAsset);
-		log.debug("x_min : {}", x_min);
-		Double range_diff = (Range_max - Range_min);
-		log.debug("range_diff : {}", range_diff);
-		Double sat = ((x_ratio - x_min) / (x_max - x_min));
-		log.debug("(x_ratio - x_min) / (x_max - x_min): {}", sat);
-		Double propertyvalue = range_diff * sat;
-		log.debug("propertyvalue  : {}", propertyvalue);
-		log.info("End calPropertyValue");
-		return (long) Math.abs(Math.round(propertyvalue));
 	}
 
 }
