@@ -75,21 +75,15 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 		if (businessturnover == 0 || capitalinvested == 0 || (businessturnover == capitalinvested)) {
 			throw new NullPointerException("NullPointerException in CalBusinessValue");
 		}
+		double bt = businessturnover.doubleValue();
+		double ci = capitalinvested.doubleValue();
+		double bv = (double) (bt - ci) / (ci);
 
-		Double x_ratio = (double) (businessturnover / capitalinvested);
-		log.debug("X_ratio: {}", x_ratio);
-		Double Range_min = 0D;
-		Double Range_max = 10D;
-		Double x_max = (double) businessturnover;
-		Double x_min = (double) capitalinvested;
-		Double range_diff = (double) (Range_max - Range_min);
-		log.debug("range_diff : {}", range_diff);
-		Double sat = ((x_ratio - x_min) / (x_max - x_min));
-		log.debug("(x_ratio - x_min) / (x_max - x_min): {}", sat);
-		Double businessvalue = (range_diff * sat);
-		log.debug("BusinessValue: {}", businessvalue);
+		bv = bv * 10;
+		Long businessValue = Math.round(bv);
+		log.debug("BusinessValue: {}", businessValue);
 		log.info("End CalBusinessValue");
-		return (long) Math.abs(Math.round(businessvalue));
+		return businessValue;
 	}
 
 	@Override
@@ -148,12 +142,12 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 				.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
 		Consumer consumers = consumer.get();
 		log.debug("Consumer : {}", consumers);
-		
+
 		Optional<Business> optionalBusiness = Optional.ofNullable(businessRepository.findById(consumerId)
 				.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
 		Business business = optionalBusiness.get();
 		log.debug("Business : {}", business);
-		
+
 		ConsumerBusinessDetails consumerBusinessDetails = new ConsumerBusinessDetails(consumers.getName(),
 				consumers.getDob(), consumers.getBusinessName(), consumers.getPanDetails(), consumers.getEmail(),
 				consumers.getPhone(), consumers.getBusinessOverview(), consumers.getValidity(),

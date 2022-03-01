@@ -20,10 +20,12 @@ import com.cts.consumer.payload.response.ConsumerBusinessDetails;
 import com.cts.consumer.service.BusinessPropertyService;
 import com.cts.consumer.service.ConsumerBusinessService;
 
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
+@Api(value = "ConsumerDetails", description = "Consumer details for Agent")
 public class ConsumerController {
 
 	@Autowired
