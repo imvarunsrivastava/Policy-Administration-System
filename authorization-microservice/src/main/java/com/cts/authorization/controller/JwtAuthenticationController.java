@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cts.authorization.config.JwtTokenUtil;
 import com.cts.authorization.dto.ValidatingDTO;
 import com.cts.authorization.exception.AuthorizeException;
+import com.cts.authorization.model.AuthorizeResponse;
 import com.cts.authorization.model.JwtRequest;
 import com.cts.authorization.model.JwtResponse;
 import com.cts.authorization.model.MyUserDetails;
@@ -46,7 +47,7 @@ public class JwtAuthenticationController {
 
 	@PostMapping(value = "/authenticate")
 	@ApiOperation(value = "authenticating user", notes = "authenticating user for service")
-	public JwtResponse createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
+	public ResponseEntity<JwtResponse>  createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
 			throws AuthorizeException {
 		log.info("before authenticate createAuthenticationToken method");
 		authenticate(authenticationRequest.getUserName(), authenticationRequest.getPassword());
@@ -54,7 +55,8 @@ public class JwtAuthenticationController {
 				.loadUserByUsername(authenticationRequest.getUserName());
 		String token = jwtTokenUtil.generateToken(userDetails);
 		log.info("Inside auth controller createAuthenticationToken method");
-		return new JwtResponse(authenticationRequest.getUserName(), token, userDetails.getUser().getRole());
+		JwtResponse response = new JwtResponse(authenticationRequest.getUserName(), token, userDetails.getUser().getRole());
+		return new ResponseEntity<JwtResponse>(response,HttpStatus.OK);
 
 	}
 
@@ -76,7 +78,7 @@ public class JwtAuthenticationController {
 
 	@PostMapping(value = "/authorize")
 	@ApiOperation(value = "Autherized user", notes = "Autherized user for service")
-	public boolean authorizeRequest(
+	public ResponseEntity<AuthorizeResponse> authorizeRequest(
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) {
 		String jwtToken = null;
 		String username = null;
@@ -85,13 +87,13 @@ public class JwtAuthenticationController {
 			try {
 				username = jwtTokenUtil.getUsernameFromToken(jwtToken);
 			} catch (IllegalArgumentException e) {
-				return false;
+				return new ResponseEntity<AuthorizeResponse>(new AuthorizeResponse(false),HttpStatus.OK);
 			} catch (ExpiredJwtException e) {
-				return false;
+				return new ResponseEntity<AuthorizeResponse>(new AuthorizeResponse(false),HttpStatus.OK);
 			}
 		}
-		return username != null;
-
+		
+		return new ResponseEntity<AuthorizeResponse>(new AuthorizeResponse(username != null),HttpStatus.OK);
 	}
 
 	@GetMapping(path = "/validate")
