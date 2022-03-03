@@ -22,6 +22,7 @@ import com.cts.policy.payload.request.IssuePolicyRequest;
 import com.cts.policy.payload.request.QuotesRequest;
 import com.cts.policy.payload.response.PolicyDetailsResponse;
 import com.cts.policy.payload.response.QuotesDetailsResponse;
+import com.cts.policy.payload.response.StatusResponse;
 import com.cts.policy.repository.ConsumerPolicyRepository;
 import com.cts.policy.repository.PolicyMasterRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -43,13 +44,13 @@ public class PolicyServiceImpl implements PolicyService{
 	private QuotesClient quotesCilent;
 	
 	@Transactional
-	public String createPolicy(CreatePolicyRequest createPolicyRequest)  {
+	public StatusResponse createPolicy(CreatePolicyRequest createPolicyRequest)  {
 	  
 		log.info("Start Create Policy inside Policy Service");
 		ResponseEntity<ConsumerBusinessDetails> consumerDetails=consumerClient.getConsumerBusiness(createPolicyRequest.getConsumerId());
 
 		if(consumerPolicyRepository.existsByConsumerIdAndBusinessId(createPolicyRequest.getConsumerId(),consumerDetails.getBody().getBusinessId())) {
-			return "Policy already created for this consumer with same business details";
+			return new StatusResponse("Policy already created for this consumer with same business details");
 		}
 		else {
 			log.debug("Consumer Business Details :{}",consumerDetails);
@@ -60,35 +61,35 @@ public class PolicyServiceImpl implements PolicyService{
 							consumerDetails.getBody().getBusinessId(),"Initiated",createPolicyRequest.getAcceptedQuotes());
 					consumerPolicyRepository.save(consumerCreatePolicySave);
 					log.info("End Create Policy inside Policy Service");
-					return "Policy created Successfully.";	
+					return new StatusResponse("Policy created Successfully.");	
 			  
 			}
 			else {
 				log.info("End Create Policy inside Policy Service");
-				return "Sorry! The policy you are Creating is not available.";
+				return new StatusResponse("Sorry! The policy you are Creating is not available.");
 			}
 		}
 		
 	}
 	
 	@Transactional
-	public String issuePolicy(IssuePolicyRequest issuePolicyRequest) throws PolicyNotFoundException{
+	public StatusResponse issuePolicy(IssuePolicyRequest issuePolicyRequest) throws PolicyNotFoundException{
 		
 		log.info("Start Issue Policy inside Policy Service");
 		
 		if (!consumerPolicyRepository.existsByConsumerId(issuePolicyRequest.getConsumerId())) {
-			return "Sorry!!, No Consumer Found!!";
+			return new StatusResponse("Sorry!!, No Consumer Found!!");
 		}
 		
 		if (!policyMasterRepository.existsByPolicyId(issuePolicyRequest.getPolicyId())) {
-			return "Sorry!!, No Policy Found!!";
+			return new StatusResponse("Sorry!!, No Policy Found!!");
 		}
 		
 		if (!(issuePolicyRequest.getPaymentDetails().equals("Success"))) {
-			return "Sorry!!, Payment Failed!! Try Again";
+			return new StatusResponse("Sorry!!, Payment Failed!! Try Again");
 		}
 		if (!(issuePolicyRequest.getAcceptanceStatus().equals("Accepted"))) {
-			return "Sorry!!, Accepted Failed !! Try Again";
+			return new StatusResponse("Sorry!!, Accepted Failed !! Try Again");
 		}
 		
 		ConsumerPolicy consumerPolicy=consumerPolicyRepository.findByConsumerIdAndBusinessId(issuePolicyRequest.getConsumerId(),issuePolicyRequest.getBusinessId());
@@ -99,7 +100,7 @@ public class PolicyServiceImpl implements PolicyService{
 	        	 consumerPolicy.setDuration(policy.getTenure());
 	         }
 	        else {
-	        	return "Please enter Valid Policy id";
+	        	return new StatusResponse("Please enter Valid Policy id");
 	        }
 	        consumerPolicy.setPolicyId(issuePolicyRequest.getPolicyId());
 	        consumerPolicy.setPaymentDetails(issuePolicyRequest.getPaymentDetails());
@@ -112,11 +113,11 @@ public class PolicyServiceImpl implements PolicyService{
             consumerPolicyRepository.save(consumerPolicy);
             log.debug("Issue Policy Details :{}",consumerPolicy);
             log.info("End Issue Policy inside Policy Service");
-            return "Policy Issued Successfully.";
+            return new StatusResponse("Policy Issued Successfully.");
 		}
 		else {
 			log.info("End Issue Policy inside Policy Service");
-			return  "Policy is not created for this consumer.";
+			return new StatusResponse("Policy is not created for this consumer.");
 		}
 	   
 	}

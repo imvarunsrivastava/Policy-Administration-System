@@ -37,7 +37,7 @@ public class PolicyController {
 	
 	@ApiOperation(value="Create policy for consumer")
 	@PostMapping("/createPolicy")
-	public ResponseEntity<String> createPolicy(@Valid @RequestBody CreatePolicyRequest createPolicyRequest,
+	public ResponseEntity<?> createPolicy(@Valid @RequestBody CreatePolicyRequest createPolicyRequest,
 			@RequestHeader("Authorization") String token) {
 		log.info("Start Create Policy inside Policy Controller");
 		if(authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
@@ -46,13 +46,13 @@ public class PolicyController {
 		}
 		log.debug("Token is invalid.");
 		log.info("End Create Policy inside Policy Controller");
-		return new ResponseEntity<String>("Token is invalid.",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Token is invalid.",HttpStatus.BAD_REQUEST);
 	}
 	
 	
 	@ApiOperation(value="Issue policy for consumer")
 	@PostMapping("/issuePolicy")
-	public ResponseEntity<String> issuePolicy(@Valid @RequestBody IssuePolicyRequest issuePolicyRequest,
+	public ResponseEntity<?> issuePolicy(@Valid @RequestBody IssuePolicyRequest issuePolicyRequest,
 			@RequestHeader("Authorization") String token) throws PolicyNotFoundException{
 		log.info("Start Issue Policy inside Policy Controller");
 		if(authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
