@@ -9,6 +9,6 @@ import com.cts.policy.payload.request.QuotesRequest;
 @FeignClient(name="QUOTES-MICROSERVICE")
 public interface QuotesClient {
 
-	@PostMapping("/getQuotesForPolicy")
+	@PostMapping("/quotesapi/getQuotesForPolicy")
 	public String getQuotesForPolicy(@Valid @RequestBody QuotesRequest quotesRequest);
 }
