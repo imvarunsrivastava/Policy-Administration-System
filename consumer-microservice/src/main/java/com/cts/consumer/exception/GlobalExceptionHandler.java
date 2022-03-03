@@ -35,6 +35,23 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 	
 	@SuppressWarnings("null")
+	@ExceptionHandler(InvalidTokenException.class)
+	protected ResponseEntity<Object> handleInvalidTokenException(InvalidTokenException ex) {
+		log.info("Start handleInvalidTokenException");
+		Map<String, Object> body = new LinkedHashMap<>();
+		body.put("timestamp", new Date());
+		body.put("error", "Bad Request");
+		body.put("status", HttpStatus.NOT_FOUND);
+		String errorMessageDescription = ex.getLocalizedMessage();
+		if (errorMessageDescription == null)
+			errorMessageDescription.toString();
+		body.put("error-message", errorMessageDescription);
+
+		log.info("End GlobalExceptionHandler");
+		return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+	}
+	
+	@SuppressWarnings("null")
 	@ExceptionHandler(FeignException.class)
 	protected ResponseEntity<Object> handleFeignException(FeignException ex) {
 		log.info("Start GlobalExceptionHandler");
@@ -42,7 +59,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		body.put("timestamp", new Date());
 		body.put("error", "Bad Request");
 		body.put("status", HttpStatus.NOT_FOUND);
-		String errorMessageDescription = ex.getLocalizedMessage();
+		String errorMessageDescription = ex.getMessage();
 		if (errorMessageDescription == null)
 			errorMessageDescription.toString();
 		body.put("error-message", errorMessageDescription);

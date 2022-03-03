@@ -9,6 +9,7 @@ import com.cts.consumer.entity.Property;
 import com.cts.consumer.entity.PropertyMaster;
 import com.cts.consumer.exception.ConsumerException;
 import com.cts.consumer.payload.request.BusinessPropertyRequest;
+import com.cts.consumer.payload.response.BusinessPropertyDetails;
 import com.cts.consumer.repository.PropertyMasterRepository;
 import com.cts.consumer.repository.PropertyRepository;
 
@@ -25,8 +26,11 @@ public class BusinessPropertyServiceImpl implements BusinessPropertyService {
 	private PropertyRepository propertyRepository;
 
 	@Override
-	public String createBusinessProperty(BusinessPropertyRequest businessPropertyRequest) throws Exception {
+	public BusinessPropertyDetails createBusinessProperty(BusinessPropertyRequest businessPropertyRequest)
+			throws ConsumerException {
 		log.info("Start createBusinessProperty inside BusinessPropertyImpl");
+
+		BusinessPropertyDetails businessPropertyDetails;
 
 		PropertyMaster propertyMaster = propertyMasterRepository.findByInsuranceTypeAndPropertyType(
 				businessPropertyRequest.getInsuranceType(), businessPropertyRequest.getPropertyType());
@@ -46,18 +50,30 @@ public class BusinessPropertyServiceImpl implements BusinessPropertyService {
 					businessPropertyRequest.getCostOfTheAsset(), businessPropertyRequest.getSalvageValue(),
 					businessPropertyRequest.getUsefulLifeOfTheAsset());
 			Property propertySave = propertyRepository.save(property);
+
 			log.debug("Property save : {}", propertySave);
+
+			businessPropertyDetails = new BusinessPropertyDetails(propertySave.getPropertyId(),
+					businessPropertyRequest.getBusinessId(), businessPropertyRequest.getConsumerId(),
+					businessPropertyRequest.getInsuranceType(), businessPropertyRequest.getPropertyType(),
+					businessPropertyRequest.getBuildingSqft(), businessPropertyRequest.getBuildingType(),
+					businessPropertyRequest.getBuildingStoreys(), businessPropertyRequest.getBuildingAge(),
+					propertyValue, businessPropertyRequest.getCostOfTheAsset(),
+					businessPropertyRequest.getSalvageValue(), businessPropertyRequest.getUsefulLifeOfTheAsset());
+			log.debug("BusinessPropertyDetails : {}", businessPropertyDetails);
 			log.info("End createBusinessProperty inside BusinessPropertyImpl");
-			return "SuccessFully Created Business Property with Property ID :" + propertySave.getPropertyId()
-					+ " and Business ID :" + propertySave.getBusinessId() + " . Thank you!!";
+			return businessPropertyDetails;
 		}
 		log.info("End createBusinessProperty inside BusinessPropertyImpl");
-		return "Sorry!!, Your Business Property is Not Eligibile for Insurance.";
+		throw new ConsumerException("Sorry!!, Your Business Property is Not Eligibile for Insurance.");
 	}
 
 	@Override
-	public String updateBusinessProperty(BusinessPropertyRequest businessPropertyRequest) throws ConsumerException {
+	public BusinessPropertyDetails updateBusinessProperty(BusinessPropertyRequest businessPropertyRequest)
+			throws ConsumerException {
 		log.info("Start updateBusinessProperty inside BusinessPropertyImpl");
+		BusinessPropertyDetails businessPropertyDetails;
+
 		Optional<Property> optionalProperty = Optional.ofNullable(propertyRepository
 				.findByConsumerIdAndBusinessId(businessPropertyRequest.getConsumerId(),
 						businessPropertyRequest.getBusinessId())
@@ -87,25 +103,40 @@ public class BusinessPropertyServiceImpl implements BusinessPropertyService {
 			Property propertySave = propertyRepository.save(property);
 			log.debug("Update Property Details : {}", propertySave);
 
+			businessPropertyDetails = new BusinessPropertyDetails(propertySave.getPropertyId(),
+					businessPropertyRequest.getBusinessId(), businessPropertyRequest.getConsumerId(),
+					businessPropertyRequest.getInsuranceType(), businessPropertyRequest.getPropertyType(),
+					businessPropertyRequest.getBuildingSqft(), businessPropertyRequest.getBuildingType(),
+					businessPropertyRequest.getBuildingStoreys(), businessPropertyRequest.getBuildingAge(),
+					propertyValue, businessPropertyRequest.getCostOfTheAsset(),
+					businessPropertyRequest.getSalvageValue(), businessPropertyRequest.getUsefulLifeOfTheAsset());
+			log.debug("BusinessPropertyDetails : {}", businessPropertyDetails);
 			log.info("End updateBusinessProperty inside BusinessPropertyImpl");
-			return "SuccessFully Updated Business Property with Consumer ID :" + propertySave.getConsumerId()
-					+ " and Business ID :" + propertySave.getBusinessId() + " . Thank you!!";
+			return businessPropertyDetails;
 		}
 		log.info("End updateBusinessProperty inside BusinessPropertyImpl");
-		return "Sorry!!, Your Business Property is Not Eligibile for Insurance.";
+		throw new ConsumerException("Sorry!!, Your Business Property is Not Eligibile for Insurance.");
 	}
 
 	@Override
-	public Property getBusinessProperty(long consumerId, long propertyId) throws ConsumerException {
+	public BusinessPropertyDetails getBusinessProperty(long consumerId, long propertyId) throws ConsumerException {
 		log.info("Start getBusinessProperty inside BusinessPropertyImpl");
-		
-		Optional<Property> optionalProperty = Optional.ofNullable(
-				propertyRepository.findByConsumerIdAndPropertyId(consumerId, propertyId))
+		BusinessPropertyDetails businessPropertyDetails = null;
+
+		Optional<Property> optionalProperty = Optional
+				.ofNullable(propertyRepository.findByConsumerIdAndPropertyId(consumerId, propertyId))
 				.orElseThrow(() -> new ConsumerException("Consumer Id or Property Id is not found."));
-		
-		log.debug("Business Property Details : {}",optionalProperty.get());
-		log.info("End getBusinessProperty inside BusinessPropertyImpl");
-		return optionalProperty.get();
+		Property property = optionalProperty.get();
+		log.debug("Business Property Details : {}", property);
+
+		businessPropertyDetails = new BusinessPropertyDetails(property.getPropertyId(), property.getBusinessId(),
+				property.getConsumerId(), property.getInsuranceType(), property.getPropertyType(),
+				property.getBuildingSqft(), property.getBuildingType(), property.getBuildingStoreys(),
+				property.getBuildingAge(), property.getPropertyValue(), property.getCostOfTheAsset(),
+				property.getSalvageValue(), property.getUsefulLifeOfTheAsset());
+		log.debug("BusinessPropertyDetails : {}", businessPropertyDetails);
+		log.info("End updateBusinessProperty inside BusinessPropertyImpl");
+		return businessPropertyDetails;
 	}
 
 	public Long calPropertyValue(Long costoftheasset, Long salvagevalue, Long usefullifeoftheAsset) {

@@ -31,10 +31,10 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 	private BusinessMasterRepository businessMasterRepository;
 
 	@Override
-	public ConsumerBusinessDetails createConsumerBusiness(ConsumerBusinessRequest consumerBusinessRequest) throws Exception {
+	public ConsumerBusinessDetails createConsumerBusiness(ConsumerBusinessRequest consumerBusinessRequest) throws ConsumerException {
 		log.info("Start createConsumerBusiness inside ConsumerServiceImpl");
 
-		ConsumerBusinessDetails consumerBusinessDetails = null;
+		ConsumerBusinessDetails consumerBusinessDetails;
 		
 		BusinessMaster businessMaster = businessMasterRepository.findByBusinessCategoryAndBusinessType(
 				consumerBusinessRequest.getBusinessCategory(), consumerBusinessRequest.getBusinessType());
@@ -77,7 +77,7 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 			return consumerBusinessDetails;
 		}
 		log.info("End createConsumerBusiness inside ConsumerServiceImpl");
-		return consumerBusinessDetails;
+		throw new ConsumerException("Sorry!!, Consumer is Not Eligibile for Insurance.");
 	}
 
 	public Long calBusinessValue(Long businessturnover, Long capitalinvested) {
@@ -89,7 +89,7 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 		double ci = capitalinvested.doubleValue();
 		double bv = (double) (bt - ci) / (ci);
 
-		bv = bv * 10;
+		bv = bv * 100;
 		Long businessValue = Math.round(bv);
 		log.debug("BusinessValue: {}", businessValue);
 		log.info("End CalBusinessValue");
@@ -143,8 +143,7 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 			return consumerBusinessDetails;
 		}
 		log.info("End updateConsumerBusiness inside ConsumerServiceImpl");
-		consumerBusinessDetails = null;
-		return consumerBusinessDetails;
+		throw new ConsumerException("Sorry!!, Consumer is Not Eligibile for Insurance.");
 	}
 
 	@Override
