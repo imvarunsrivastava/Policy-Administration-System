@@ -6,7 +6,7 @@ import com.cts.consumer.payload.response.BusinessPropertyDetails;
 
 public interface BusinessPropertyService {
 
-	public BusinessPropertyDetails createBusinessProperty(BusinessPropertyRequest businessPropertyRequest) throws Exception;
+	public BusinessPropertyDetails createBusinessProperty(BusinessPropertyRequest businessPropertyRequest) throws ConsumerException;
 
 	public BusinessPropertyDetails updateBusinessProperty(BusinessPropertyRequest businessPropertyRequest) throws ConsumerException;
 
