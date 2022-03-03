@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-@RequestMapping("/consumer-api")
+@RequestMapping("/consumer")
 @Api(value = "ConsumerDetails", description = "Consumer details for Agent")
 public class ConsumerController {
 
