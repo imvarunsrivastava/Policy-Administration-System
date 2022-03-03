@@ -31,9 +31,11 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 	private BusinessMasterRepository businessMasterRepository;
 
 	@Override
-	public String createConsumerBusiness(ConsumerBusinessRequest consumerBusinessRequest) throws Exception {
+	public ConsumerBusinessDetails createConsumerBusiness(ConsumerBusinessRequest consumerBusinessRequest) throws Exception {
 		log.info("Start createConsumerBusiness inside ConsumerServiceImpl");
 
+		ConsumerBusinessDetails consumerBusinessDetails = null;
+		
 		BusinessMaster businessMaster = businessMasterRepository.findByBusinessCategoryAndBusinessType(
 				consumerBusinessRequest.getBusinessCategory(), consumerBusinessRequest.getBusinessType());
 		log.debug("Business Master {}", businessMaster);
@@ -48,26 +50,34 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 					consumerBusinessRequest.getAgentId(), consumerBusinessRequest.getAgentName());
 
 			log.debug("Consumer: {}", consumer);
-			Consumer consumersave = consumerRepository.save(consumer);
+			Consumer consumerSave = consumerRepository.save(consumer);
 
-			log.debug("Consumer Save: {}", consumersave);
+			log.debug("Consumer Save: {}", consumerSave);
 			Long businessvalue = calBusinessValue(consumerBusinessRequest.getBusinessTurnover(),
 					consumerBusinessRequest.getCapitalInvested());
 			log.debug("BusinessValue: {}", businessvalue);
-			Business business = new Business(consumersave.getConsumerId(),
+			Business business = new Business(consumerSave.getConsumerId(),
 					consumerBusinessRequest.getBusinessCategory(), consumerBusinessRequest.getBusinessType(),
 					consumerBusinessRequest.getBusinessTurnover(), consumerBusinessRequest.getCapitalInvested(),
 					consumerBusinessRequest.getTotalEmployees(), businessvalue,
 					consumerBusinessRequest.getBusinessAge());
 			log.debug("Business: {}", business);
-			Business businesssave = businessRepository.save(business);
-			log.debug("Business Save: {}", businesssave);
+			Business businessSave = businessRepository.save(business);
+			log.debug("Business Save: {}", businessSave);
+			consumerBusinessDetails = new ConsumerBusinessDetails(consumerSave.getName(),
+					consumerSave.getDob(), consumerSave.getBusinessName(), consumerSave.getPanDetails(), consumerSave.getEmail(),
+					consumerSave.getPhone(), consumerSave.getBusinessOverview(), consumerSave.getValidity(),
+					consumerSave.getAgentName(), consumerSave.getAgentId(), businessSave.getBusinessId(), businessSave.getConsumerId(),
+					businessSave.getBusinessCategory(), businessSave.getBusinessType(), businessSave.getBusinessTurnover(),
+					businessSave.getCapitalInvested(), businessSave.getTotalEmployees(), businessSave.getBusinessValue(),
+					businessSave.getBusinessAge()
+			);
+			log.debug("ConsumerBusinessDetails Save: {}", consumerBusinessDetails);
 			log.info("End createConsumerBusiness inside ConsumerServiceImpl");
-			return "SuccessFully Created Consumer with Consumer ID :" + consumersave.getConsumerId()
-					+ " and Business ID :" + businesssave.getBusinessId() + " . Thank you!!";
+			return consumerBusinessDetails;
 		}
 		log.info("End createConsumerBusiness inside ConsumerServiceImpl");
-		return "Sorry!!, Consumer is Not Eligibile for Insurance";
+		return consumerBusinessDetails;
 	}
 
 	public Long calBusinessValue(Long businessturnover, Long capitalinvested) {
@@ -87,8 +97,9 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 	}
 
 	@Override
-	public String updateConsumerBusiness(ConsumerBusinessDetails consumerBusinessDetails) throws ConsumerException {
+	public ConsumerBusinessDetails updateConsumerBusiness(ConsumerBusinessDetails consumerBusinessDetails) throws ConsumerException {
 		log.info("Start updateConsumerBusiness inside ConsumerServiceImpl");
+		
 		Optional<Consumer> optionalConsumer = Optional
 				.ofNullable(consumerRepository.findById(consumerBusinessDetails.getConsumerId())
 						.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
@@ -126,12 +137,14 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 			log.debug("Consumer saved : {}", consumerSave);
 			Business businessSave = businessRepository.save(business);
 			log.debug("Business saved : {}", businessSave);
+			
+			log.debug("ConsumerBusinessDetails Updated: {}", consumerBusinessDetails);
 			log.info("End updateConsumerBusiness inside ConsumerServiceImpl");
-			return "SuccessFully Updated Consumer with Consumer ID :" + consumerSave.getConsumerId()
-					+ " and Business ID :" + businessSave.getBusinessId() + " . Thank you!!";
+			return consumerBusinessDetails;
 		}
 		log.info("End updateConsumerBusiness inside ConsumerServiceImpl");
-		return "Sorry!!, Consumer is Not Eligibile for Insurance";
+		consumerBusinessDetails = null;
+		return consumerBusinessDetails;
 	}
 
 	@Override

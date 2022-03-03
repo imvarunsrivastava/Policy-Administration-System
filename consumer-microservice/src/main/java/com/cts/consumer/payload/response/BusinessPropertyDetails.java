@@ -46,6 +46,9 @@ public class BusinessPropertyDetails {
 	private Long buildingAge;
 
 	@NotNull
+	private Long propertyValue;
+	
+	@NotNull
 	private Long costOfTheAsset;
 	
 	@NotNull
