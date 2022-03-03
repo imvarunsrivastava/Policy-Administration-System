@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/policyapi")
+@RequestMapping("/policy")
 @Slf4j
 @Api(value="Policy Details",description="Policy Details for Agent")
 public class PolicyController {
