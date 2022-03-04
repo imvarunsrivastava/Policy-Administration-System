@@ -22,6 +22,9 @@ public class BusinessPropertyDetails {
 	@NotNull
 	private Long consumerId;
 	
+	@NotNull
+	private String consumerName;
+	
 	@NotBlank
 	@Size(max = 30)
 	private String insuranceType;

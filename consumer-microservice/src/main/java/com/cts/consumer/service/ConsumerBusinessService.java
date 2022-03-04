@@ -1,5 +1,7 @@
 package com.cts.consumer.service;
 
+import java.util.List;
+
 import com.cts.consumer.exception.ConsumerException;
 import com.cts.consumer.payload.request.ConsumerBusinessRequest;
 import com.cts.consumer.payload.response.ConsumerBusinessDetails;
@@ -11,6 +13,8 @@ public interface ConsumerBusinessService {
 	public ConsumerBusinessDetails updateConsumerBusiness(ConsumerBusinessDetails consumerBusinessDetails) throws ConsumerException;
 	
 	public ConsumerBusinessDetails getConsumerBusiness(long consumerId) throws ConsumerException;
+	
+	public List<ConsumerBusinessDetails> getAllConsumerBusiness();
 
 	
 }

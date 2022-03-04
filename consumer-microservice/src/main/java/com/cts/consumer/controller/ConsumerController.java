@@ -1,5 +1,7 @@
 package com.cts.consumer.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +75,20 @@ public class ConsumerController {
 		return new ResponseEntity<>("Token is invalid.", HttpStatus.BAD_REQUEST);
 	}
 
+	@GetMapping("/viewConsumerBusiness")
+	public ResponseEntity<?> getAllConsumerBusiness(@RequestHeader("Authorization") String token) {
+		log.info("Start getAllConsumerBusiness inside ConsumerController");
+		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
+			List<ConsumerBusinessDetails> consumerBusinessDetails = consumerService.getAllConsumerBusiness();
+			log.debug("ConsumerBusiness  List : {}", consumerBusinessDetails);
+			log.info("End getAllConsumerBusiness inside ConsumerController");
+			return ResponseEntity.ok(consumerBusinessDetails);
+		}
+		log.debug("Token is invalid.");
+		log.info("End getAllConsumerBusiness inside ConsumerController");
+		return new ResponseEntity<String>("Token is invalid.", HttpStatus.BAD_REQUEST);
+	}
+	
 	@GetMapping("/viewConsumerBusiness/{consumerId}")
 	public ResponseEntity<?> getConsumerBusiness(@PathVariable("consumerId") long consumerId,
 			@RequestHeader("Authorization") String token) {
@@ -124,6 +140,21 @@ public class ConsumerController {
 		log.info("End updateBusinessProperty inside ConsumerController");
 		return new ResponseEntity<>("Token is invalid.", HttpStatus.BAD_REQUEST);
 	}
+	
+	@GetMapping("/viewConsumerProperty")
+	public ResponseEntity<?> getAllBusinessProperty(@RequestHeader("Authorization") String token)
+		{
+		log.info("Start getAllBusinessProperty inside ConsumerController");
+		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
+			List<BusinessPropertyDetails> businessPropertyDetails = businessPropertyService.getAllBusinessProperty();
+			log.debug("BusinessPropertyDetails : {}", businessPropertyDetails);
+			log.info("End getBusinessProperty inside ConsumerController");
+			return new ResponseEntity<>(businessPropertyDetails, HttpStatus.OK);
+		}
+		log.debug("Token is invalid.");
+		log.info("End getAllBusinessProperty inside ConsumerController");
+		return new ResponseEntity<>("Token is invalid.", HttpStatus.BAD_REQUEST);
+	}
 
 	@GetMapping("/viewConsumerProperty/{consumerId}/{propertyId}")
 	public ResponseEntity<?> getBusinessProperty(@PathVariable("consumerId") long consumerId,
@@ -138,8 +169,10 @@ public class ConsumerController {
 			return new ResponseEntity<>(businessPropertyDetails, HttpStatus.OK);
 		}
 		log.debug("Token is invalid.");
-		log.info("End updateBusinessProperty inside ConsumerController");
+		log.info("End getBusinessProperty inside ConsumerController");
 		return new ResponseEntity<>("Token is invalid.", HttpStatus.BAD_REQUEST);
 	}
+	
+	
 
 }
