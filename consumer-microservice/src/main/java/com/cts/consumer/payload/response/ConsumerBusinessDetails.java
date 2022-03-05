@@ -13,72 +13,72 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ConsumerBusinessDetails {
 
-	@NotBlank
+	@NotBlank(message = "Name should not be empty.")
 	@Size(max = 50)
 	private String name;
 
-	@NotBlank
+	@NotBlank(message = "Date of Birth should not be empty.")
 	@Size(max = 20)
 	private String dob;
 
-	@NotBlank
+	@NotBlank(message = "Business Name should not be empty.")
 	@Size(max = 50)
 	private String businessName;
 
-	@NotBlank
+	@NotBlank(message = "Pan Details should not be empty")
 	@Size(max = 12)
 	private String panDetails;
 
-	@NotBlank
+	@NotBlank(message = "Email should not be empty")
 	@Size(max = 50)
 	private String email;
 
-	@NotBlank
+	@NotBlank(message = "Phone should not be empty.")
 	@Size(max = 10)
 	private String phone;
 
-	@NotBlank
+	@NotBlank(message = "Business Overview should not be empty")
 	@Size(max = 150)
 	private String businessOverview;
 
-	@NotBlank
+	@NotBlank(message = "Validity should not be empty.")
 	@Size(max = 30)
 	private String validity;
 
-	@NotBlank
+	@NotBlank(message = "Agent Name should not be empty.")
 	@Size(max = 50)
 	private String agentName;
 
-	@NotNull
+	@NotNull(message = "Agent Id should not be empty")
 	private Long agentId;
 
-	@NotNull
+	@NotNull(message = "Business Id should not be empty")
 	private Long businessId;
 
-	@NotNull
+	@NotNull(message = "Consumer Id should not be empty")
 	private Long consumerId;
 
-	@NotBlank
+	@NotBlank(message = "Business Category should not be empty")
 	@Size(max = 40)
 	private String businessCategory;
 
-	@NotBlank
+	@NotBlank(message = "BusinessType should not be empty")
 	@Size(max = 40)
 	private String businessType;
 
-	@NotNull
+	@NotNull(message = "AnnualTurnover should not be empty")
 	private Long businessTurnover;
 
-	@NotNull
+	@NotNull(message = "CapitalInvested should not be empty")
 	private Long capitalInvested;
 
-	@NotNull
+	@NotNull(message = "Total Employees should not be empty")
 	private Long totalEmployees;
 
-	@NotNull
+	@NotNull(message = "Business Value should not be empty")
 	private Long businessValue;
 
-	@NotNull
+	@NotNull(message = "Business Age should not be empty")
 	private Long businessAge;
 
 }

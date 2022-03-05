@@ -35,11 +35,12 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 	private BusinessMasterRepository businessMasterRepository;
 
 	@Transactional
-	public ConsumerBusinessDetails createConsumerBusiness(ConsumerBusinessRequest consumerBusinessRequest) throws ConsumerException {
+	public ConsumerBusinessDetails createConsumerBusiness(ConsumerBusinessRequest consumerBusinessRequest)
+			throws ConsumerException {
 		log.info("Start createConsumerBusiness inside ConsumerServiceImpl");
 
 		ConsumerBusinessDetails consumerBusinessDetails;
-		
+
 		BusinessMaster businessMaster = businessMasterRepository.findByBusinessCategoryAndBusinessType(
 				consumerBusinessRequest.getBusinessCategory(), consumerBusinessRequest.getBusinessType());
 		log.debug("Business Master {}", businessMaster);
@@ -68,14 +69,13 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 			log.debug("Business: {}", business);
 			Business businessSave = businessRepository.save(business);
 			log.debug("Business Save: {}", businessSave);
-			consumerBusinessDetails = new ConsumerBusinessDetails(consumerSave.getName(),
-					consumerSave.getDob(), consumerSave.getBusinessName(), consumerSave.getPanDetails(), consumerSave.getEmail(),
+			consumerBusinessDetails = new ConsumerBusinessDetails(consumerSave.getName(), consumerSave.getDob(),
+					consumerSave.getBusinessName(), consumerSave.getPanDetails(), consumerSave.getEmail(),
 					consumerSave.getPhone(), consumerSave.getBusinessOverview(), consumerSave.getValidity(),
-					consumerSave.getAgentName(), consumerSave.getAgentId(), businessSave.getBusinessId(), businessSave.getConsumerId(),
-					businessSave.getBusinessCategory(), businessSave.getBusinessType(), businessSave.getBusinessTurnover(),
-					businessSave.getCapitalInvested(), businessSave.getTotalEmployees(), businessSave.getBusinessValue(),
-					businessSave.getBusinessAge()
-			);
+					consumerSave.getAgentName(), consumerSave.getAgentId(), businessSave.getBusinessId(),
+					businessSave.getConsumerId(), businessSave.getBusinessCategory(), businessSave.getBusinessType(),
+					businessSave.getBusinessTurnover(), businessSave.getCapitalInvested(),
+					businessSave.getTotalEmployees(), businessSave.getBusinessValue(), businessSave.getBusinessAge());
 			log.debug("ConsumerBusinessDetails Save: {}", consumerBusinessDetails);
 			log.info("End createConsumerBusiness inside ConsumerServiceImpl");
 			return consumerBusinessDetails;
@@ -93,7 +93,7 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 		double ci = capitalinvested.doubleValue();
 		double bv = (double) (bt - ci) / (ci);
 
-		bv = bv * 100;
+		bv = bv * 10;
 		Long businessValue = Math.round(bv);
 		log.debug("BusinessValue: {}", businessValue);
 		log.info("End CalBusinessValue");
@@ -101,9 +101,10 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 	}
 
 	@Transactional
-	public ConsumerBusinessDetails updateConsumerBusiness(ConsumerBusinessDetails consumerBusinessDetails) throws ConsumerException {
+	public ConsumerBusinessDetails updateConsumerBusiness(ConsumerBusinessDetails consumerBusinessDetails)
+			throws ConsumerException {
 		log.info("Start updateConsumerBusiness inside ConsumerServiceImpl");
-		
+
 		Optional<Consumer> optionalConsumer = Optional
 				.ofNullable(consumerRepository.findById(consumerBusinessDetails.getConsumerId())
 						.orElseThrow(() -> new ConsumerException("Consumer is not Found.")));
@@ -141,7 +142,7 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 			log.debug("Consumer saved : {}", consumerSave);
 			Business businessSave = businessRepository.save(business);
 			log.debug("Business saved : {}", businessSave);
-			
+
 			log.debug("ConsumerBusinessDetails Updated: {}", consumerBusinessDetails);
 			log.info("End updateConsumerBusiness inside ConsumerServiceImpl");
 			return consumerBusinessDetails;
@@ -185,17 +186,18 @@ public class ConsumerBusinessServiceImpl implements ConsumerBusinessService {
 		List<Business> businessList = businessRepository.findAll();
 		List<ConsumerBusinessDetails> consumerBusinessDetailList = new ArrayList<>();
 		for (int i = 0; i < consumerList.size(); i++) {
-			consumerBusinessDetailList.add(
-					new ConsumerBusinessDetails(consumerList.get(i).getName(),
-							consumerList.get(i).getDob(), consumerList.get(i).getBusinessName(), consumerList.get(i).getPanDetails(), consumerList.get(i).getEmail(),
-							consumerList.get(i).getPhone(), consumerList.get(i).getBusinessOverview(), consumerList.get(i).getValidity(),
-							consumerList.get(i).getAgentName(), consumerList.get(i).getAgentId(), businessList.get(i).getBusinessId(), businessList.get(i).getConsumerId(),
-							businessList.get(i).getBusinessCategory(), businessList.get(i).getBusinessType(), businessList.get(i).getBusinessTurnover(),
-							businessList.get(i).getCapitalInvested(), businessList.get(i).getTotalEmployees(), businessList.get(i).getBusinessValue(),
-							businessList.get(i).getBusinessAge()
+			consumerBusinessDetailList.add(new ConsumerBusinessDetails(consumerList.get(i).getName(),
+					consumerList.get(i).getDob(), consumerList.get(i).getBusinessName(),
+					consumerList.get(i).getPanDetails(), consumerList.get(i).getEmail(), consumerList.get(i).getPhone(),
+					consumerList.get(i).getBusinessOverview(), consumerList.get(i).getValidity(),
+					consumerList.get(i).getAgentName(), consumerList.get(i).getAgentId(),
+					businessList.get(i).getBusinessId(), businessList.get(i).getConsumerId(),
+					businessList.get(i).getBusinessCategory(), businessList.get(i).getBusinessType(),
+					businessList.get(i).getBusinessTurnover(), businessList.get(i).getCapitalInvested(),
+					businessList.get(i).getTotalEmployees(), businessList.get(i).getBusinessValue(),
+					businessList.get(i).getBusinessAge()
 
-					)
-					);
+			));
 		}
 		log.debug("ConsumerBusinessDetails List : {}", consumerBusinessDetailList);
 		log.info("End getAllConsumerBusiness with  inside ConsumerServiceImpl");
