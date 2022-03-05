@@ -16,82 +16,79 @@ import com.cts.policy.exception.ConsumerNotFoundException;
 import com.cts.policy.exception.PolicyNotFoundException;
 import com.cts.policy.payload.request.CreatePolicyRequest;
 import com.cts.policy.payload.request.IssuePolicyRequest;
-import com.cts.policy.payload.request.QuotesRequest;
 import com.cts.policy.service.PolicyServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/policy")
+@RequestMapping("/policyapi")
 @Slf4j
-@Api(value="Policy Details",description="Policy Details for Agent")
+@Api(value = "Policy Details", description = "Policy Details for Agent")
 public class PolicyController {
 
 	@Autowired
 	private PolicyServiceImpl policyServiceImpl;
-	
-	@Autowired 
+
+	@Autowired
 	private AuthClient authClient;
-	
-	
-	@ApiOperation(value="Create policy for consumer")
+
+	@ApiOperation(value = "Create policy for consumer")
 	@PostMapping("/createPolicy")
 	public ResponseEntity<?> createPolicy(@Valid @RequestBody CreatePolicyRequest createPolicyRequest,
 			@RequestHeader("Authorization") String token) {
 		log.info("Start Create Policy inside Policy Controller");
-		if(authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
+		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End Create Policy inside Policy Controller");
-			return new ResponseEntity<>(policyServiceImpl.createPolicy(createPolicyRequest),HttpStatus.OK);
+			return new ResponseEntity<>(policyServiceImpl.createPolicy(createPolicyRequest, token), HttpStatus.OK);
 		}
 		log.debug("Token is invalid.");
 		log.info("End Create Policy inside Policy Controller");
-		return new ResponseEntity<>("Token is invalid.",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Token is invalid.", HttpStatus.BAD_REQUEST);
 	}
-	
-	
-	@ApiOperation(value="Issue policy for consumer")
+
+	@ApiOperation(value = "Issue policy for consumer")
 	@PostMapping("/issuePolicy")
 	public ResponseEntity<?> issuePolicy(@Valid @RequestBody IssuePolicyRequest issuePolicyRequest,
-			@RequestHeader("Authorization") String token) throws PolicyNotFoundException{
+			@RequestHeader("Authorization") String token) throws PolicyNotFoundException {
 		log.info("Start Issue Policy inside Policy Controller");
-		if(authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
+		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End Issue Policy inside Policy Controller");
-			return new ResponseEntity<>(policyServiceImpl.issuePolicy(issuePolicyRequest),HttpStatus.OK);
+			return new ResponseEntity<>(policyServiceImpl.issuePolicy(issuePolicyRequest), HttpStatus.OK);
 		}
 		log.debug("Token is invalid.");
 		log.info("End Issue Policy inside Policy Controller");
-		return new ResponseEntity<String>("Token is invalid.",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("Token is invalid.", HttpStatus.BAD_REQUEST);
 	}
-	
-	
-	@ApiOperation(value="View policy of consumer")
+
+	@ApiOperation(value = "View policy of consumer")
 	@GetMapping("/viewPolicy/{consumerId}/{policyId}")
 	public ResponseEntity<?> viewPolicy(@PathVariable("consumerId") Long consumerId,
-			@PathVariable("policyId") String policyId,@RequestHeader("Authorization") String token) throws ConsumerNotFoundException,PolicyNotFoundException{
+			@PathVariable("policyId") String policyId, @RequestHeader("Authorization") String token)
+			throws ConsumerNotFoundException, PolicyNotFoundException {
 		log.info("Start View Policy inside Policy Controller");
-		if(authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
+		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End View Policy inside Policy Controller");
-			return new ResponseEntity<>(policyServiceImpl.viewPolicy(consumerId,policyId),HttpStatus.OK);
+			return new ResponseEntity<>(policyServiceImpl.viewPolicy(consumerId, policyId), HttpStatus.OK);
 		}
 		log.debug("Token is invalid.");
 		log.info("End View Policy inside Policy Controller");
-		return new ResponseEntity<String>("Token is invalid.",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("Token is invalid.", HttpStatus.BAD_REQUEST);
 	}
-	
-	
-	@ApiOperation(value="Get policy Quotes for consumer")
-	@PostMapping("/getQuotes")
-	public ResponseEntity<?> getQuotes(@Valid @RequestBody QuotesRequest quotesRequest,
+
+	@ApiOperation(value = "Get policy Quotes for consumer")
+	@GetMapping("/getQuotes")
+	public ResponseEntity<?> getQuotes(String businessValue, String propertyValue, String propertyType,
 			@RequestHeader("Authorization") String token) {
 		log.info("Start Get Quotes inside Policy Controller");
-		if(authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
+		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End Get Quotes inside Policy Controller");
-			return new ResponseEntity<>(policyServiceImpl.getQuotes(quotesRequest),HttpStatus.OK);
+			return new ResponseEntity<>(policyServiceImpl.getQuotes(businessValue, propertyValue, propertyType, token),
+					HttpStatus.OK);
 		}
 		log.debug("Token is invalid.");
 		log.info("End Get Quotes inside Policy Controller");
-		return new ResponseEntity<String>("Token is invalid.",HttpStatus.BAD_REQUEST);
-		
+		return new ResponseEntity<String>("Token is invalid.", HttpStatus.BAD_REQUEST);
+
 	}
 }

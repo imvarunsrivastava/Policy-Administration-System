@@ -1,14 +1,18 @@
 package com.cts.policy.client;
 
-import javax.validation.Valid;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import com.cts.policy.payload.request.QuotesRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.cts.policy.payload.response.QuotesResponse;
 
 @FeignClient(name="QUOTES-MICROSERVICE")
 public interface QuotesClient {
 
-	@PostMapping("/quotesapi/getQuotesForPolicy")
-	public String getQuotesForPolicy(@Valid @RequestBody QuotesRequest quotesRequest);
+	@GetMapping("/quotesapi/getQuotesForPolicy")
+	public  ResponseEntity<QuotesResponse> getQuotesForPolicy(@RequestParam("businessValue") String businessValue, 
+			@RequestParam("propertyValue") String propertyValue, @RequestParam("propertyType") String propertyType,
+			@RequestHeader("Authorization") String token);
 }
