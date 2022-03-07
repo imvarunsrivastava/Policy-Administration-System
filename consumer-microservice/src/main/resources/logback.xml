@@ -31,32 +31,6 @@
 		<prudent>true</prudent>
 	</appender>
 
-	<appender name="DEBUGFILE"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
-
-		<encoder>
-			<pattern>${myTimestamp} [%thread] %-5level %logger{36} - %msg%n</pattern>
-		</encoder>
-
-		<rollingPolicy
-			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-
-			<fileNamePattern>logs/debug-%d{yyyy-MM-dd}.%i.log
-			</fileNamePattern>
-			<timeBasedFileNamingAndTriggeringPolicy
-				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-				<!-- or whenever the file size reaches 64 MB -->
-				<maxFileSize>64 MB</maxFileSize>
-			</timeBasedFileNamingAndTriggeringPolicy>
-		</rollingPolicy>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>DEBUG</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-		<prudent>true</prudent>
-	</appender>
-
 	<appender name="ERRORFILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 
@@ -102,7 +76,6 @@
 	<root level="INFO">
 		<appender-ref ref="ERRORFILE" />
 		<appender-ref ref="FILE" />
-		<appender-ref ref="DEBUGFILE"/>
 		<appender-ref ref="STDOUT" />
 	</root>
 	
