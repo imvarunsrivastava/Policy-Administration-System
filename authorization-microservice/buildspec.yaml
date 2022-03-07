@@ -7,7 +7,7 @@ phases:
     commands:
     - echo Logging in to Amazon ECR...
     - aws --version
-    - aws ecr get-login-password --region ap-northeast-3 | docker login --username AWS --password-stdin 528027818862.dkr.ecr.ap-northeast-3.amazonaws.com
+    - aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 528027818862.dkr.ecr.us-west-1.amazonaws.com
   build:
     commands:
     - echo Build started on `date`
@@ -19,16 +19,16 @@ phases:
     - docker build -t authorization-microservice .
     - echo Checking docker image authorization-microservice
     - docker images --filter reference=authorization-microservice
-    - docker tag authorization-microservice 528027818862.dkr.ecr.ap-northeast-3.amazonaws.com/moviecrusier-auth-repo-2068215
+    - docker tag authorization-microservice 528027818862.dkr.ecr.us-west-1.amazonaws.com/pas-auth-registry
     - echo Checking tag added before the docker image
     - docker images
   post_build:
     commands:
     - echo Build completed on `date`
     - echo Pushing docker image
-    - docker push 528027818862.dkr.ecr.ap-northeast-3.amazonaws.com/moviecrusier-auth-repo-2068215:latest
+    - docker push 528027818862.dkr.ecr.us-west-1.amazonaws.com/pas-auth-registry:latest
     - echo Writting definition file
-    - printf '[{"name":"auth-container-2068215","imageUri":"%s"}]' 528027818862.dkr.ecr.ap-northeast-3.amazonaws.com/moviecrusier-auth-repo-2068215 > imagedefinitions.json
+    - printf '[{"name":"pas-auth-container","imageUri":"%s"}]' 528027818862.dkr.ecr.us-west-1.amazonaws.com/pas-auth-registry > imagedefinitions.json
 artifacts:
   files:
   - authorization-microservice/imagedefinitions.json
