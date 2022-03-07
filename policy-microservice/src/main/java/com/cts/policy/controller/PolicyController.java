@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.cts.policy.client.AuthClient;
 import com.cts.policy.exception.ConsumerNotFoundException;
-import com.cts.policy.exception.PolicyNotFoundException;
+import com.cts.policy.exception.InvalidTokenException;
+import com.cts.policy.exception.PolicyException;
 import com.cts.policy.payload.request.CreatePolicyRequest;
 import com.cts.policy.payload.request.IssuePolicyRequest;
 import com.cts.policy.service.PolicyServiceImpl;
@@ -36,7 +38,7 @@ public class PolicyController {
 	@ApiOperation(value = "Create policy for consumer")
 	@PostMapping("/createPolicy")
 	public ResponseEntity<?> createPolicy(@Valid @RequestBody CreatePolicyRequest createPolicyRequest,
-			@RequestHeader("Authorization") String token) {
+			@RequestHeader("Authorization") String token) throws PolicyException,InvalidTokenException{
 		log.info("Start Create Policy inside Policy Controller");
 		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End Create Policy inside Policy Controller");
@@ -44,13 +46,13 @@ public class PolicyController {
 		}
 		log.debug("Token is invalid.");
 		log.info("End Create Policy inside Policy Controller");
-		return new ResponseEntity<>("Token is invalid.", HttpStatus.BAD_REQUEST);
+		throw new InvalidTokenException("Token is invalid.");
 	}
 
 	@ApiOperation(value = "Issue policy for consumer")
 	@PostMapping("/issuePolicy")
 	public ResponseEntity<?> issuePolicy(@Valid @RequestBody IssuePolicyRequest issuePolicyRequest,
-			@RequestHeader("Authorization") String token) throws PolicyNotFoundException {
+			@RequestHeader("Authorization") String token) throws PolicyException,InvalidTokenException {
 		log.info("Start Issue Policy inside Policy Controller");
 		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End Issue Policy inside Policy Controller");
@@ -58,14 +60,14 @@ public class PolicyController {
 		}
 		log.debug("Token is invalid.");
 		log.info("End Issue Policy inside Policy Controller");
-		return new ResponseEntity<String>("Token is invalid.", HttpStatus.BAD_REQUEST);
+		throw new InvalidTokenException("Token is invalid.");
 	}
 
 	@ApiOperation(value = "View policy of consumer")
 	@GetMapping("/viewPolicy/{consumerId}/{policyId}")
 	public ResponseEntity<?> viewPolicy(@PathVariable("consumerId") Long consumerId,
 			@PathVariable("policyId") String policyId, @RequestHeader("Authorization") String token)
-			throws ConsumerNotFoundException, PolicyNotFoundException {
+			throws ConsumerNotFoundException, PolicyException,InvalidTokenException {
 		log.info("Start View Policy inside Policy Controller");
 		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End View Policy inside Policy Controller");
@@ -73,13 +75,13 @@ public class PolicyController {
 		}
 		log.debug("Token is invalid.");
 		log.info("End View Policy inside Policy Controller");
-		return new ResponseEntity<String>("Token is invalid.", HttpStatus.BAD_REQUEST);
+		throw new InvalidTokenException("Token is invalid.");
 	}
 
 	@ApiOperation(value = "Get policy Quotes for consumer")
 	@GetMapping("/getQuotes")
 	public ResponseEntity<?> getQuotes(String businessValue, String propertyValue, String propertyType,
-			@RequestHeader("Authorization") String token) {
+			@RequestHeader("Authorization") String token) throws InvalidTokenException {
 		log.info("Start Get Quotes inside Policy Controller");
 		if (authClient.validatingAuthorizationToken(token).getBody().isValidStatus()) {
 			log.info("End Get Quotes inside Policy Controller");
@@ -88,7 +90,7 @@ public class PolicyController {
 		}
 		log.debug("Token is invalid.");
 		log.info("End Get Quotes inside Policy Controller");
-		return new ResponseEntity<String>("Token is invalid.", HttpStatus.BAD_REQUEST);
+		throw new InvalidTokenException("Token is invalid.");
 
 	}
 }

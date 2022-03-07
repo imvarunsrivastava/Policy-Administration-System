@@ -15,7 +15,7 @@ import com.cts.policy.dto.ConsumerBusinessDetails;
 import com.cts.policy.entity.ConsumerPolicy;
 import com.cts.policy.entity.PolicyMaster;
 import com.cts.policy.exception.ConsumerNotFoundException;
-import com.cts.policy.exception.PolicyNotFoundException;
+import com.cts.policy.exception.PolicyException;
 import com.cts.policy.payload.request.CreatePolicyRequest;
 import com.cts.policy.payload.request.IssuePolicyRequest;
 import com.cts.policy.payload.response.PolicyDetailsResponse;
@@ -44,14 +44,14 @@ public class PolicyServiceImpl implements PolicyService {
 	private QuotesClient quotesCilent;
 
 	@Transactional
-	public StatusResponse createPolicy(CreatePolicyRequest createPolicyRequest, String token) {
+	public StatusResponse createPolicy(CreatePolicyRequest createPolicyRequest, String token) throws PolicyException{
 
 		log.info("Start Create Policy inside Policy Service");
 		ResponseEntity<ConsumerBusinessDetails> consumerDetails = consumerClient
 				.getConsumerBusiness(createPolicyRequest.getConsumerId(), token);
 		if (consumerPolicyRepository.existsByConsumerIdAndBusinessId(createPolicyRequest.getConsumerId(),
 				consumerDetails.getBody().getBusinessId())) {
-			return new StatusResponse("Policy already created for this consumer with same business details");
+			throw  new PolicyException("Policy already created for this consumer with same business details");
 		} else {
 			log.info("Consumer Business Details :{}", consumerDetails);
 			PolicyMaster policyMaster = policyMasterRepository
@@ -69,30 +69,30 @@ public class PolicyServiceImpl implements PolicyService {
 
 			} else {
 				log.info("End Create Policy inside Policy Service");
-				return new StatusResponse("Sorry! The policy you are Creating is not available.");
+				throw  new PolicyException("Sorry! The policy you are Creating is not available.");
 			}
 		}
 
 	}
 
 	@Transactional
-	public StatusResponse issuePolicy(IssuePolicyRequest issuePolicyRequest) throws PolicyNotFoundException {
+	public StatusResponse issuePolicy(IssuePolicyRequest issuePolicyRequest) throws PolicyException {
 
 		log.info("Start Issue Policy inside Policy Service");
 
 		if (!consumerPolicyRepository.existsByConsumerId(issuePolicyRequest.getConsumerId())) {
-			return new StatusResponse("Sorry!!, No Consumer Found!!");
+			throw  new PolicyException("Sorry!!, No Consumer Found!!");
 		}
 
 		if (!policyMasterRepository.existsByPolicyId(issuePolicyRequest.getPolicyId())) {
-			return new StatusResponse("Sorry!!, No Policy Found!!");
+			throw  new PolicyException("Sorry!!, No Policy Found!!");
 		}
 
 		if (!(issuePolicyRequest.getPaymentDetails().equals("Success"))) {
-			return new StatusResponse("Sorry!!, Payment Failed!! Try Again");
+			throw  new PolicyException("Sorry!!, Payment Failed!! Try Again");
 		}
 		if (!(issuePolicyRequest.getAcceptanceStatus().equals("Accepted"))) {
-			return new StatusResponse("Sorry!!, Accepted Failed !! Try Again");
+			throw  new PolicyException("Sorry!!, Accepted Failed !! Try Again");
 		}
 
 		ConsumerPolicy consumerPolicy = consumerPolicyRepository
@@ -115,14 +115,14 @@ public class PolicyServiceImpl implements PolicyService {
 			return new StatusResponse("Policy Issued Successfully.");
 		} else {
 			log.info("End Issue Policy inside Policy Service");
-			return new StatusResponse("Policy is not created for this consumer.");
+			throw  new PolicyException("Policy is not created for this consumer.");
 		}
 
 	}
 
 	@Transactional
 	public PolicyDetailsResponse viewPolicy(Long consumerId, String policyId)
-			throws ConsumerNotFoundException, PolicyNotFoundException {
+			throws ConsumerNotFoundException, PolicyException {
 
 		log.info("Start View Policy inside Policy Service");
 		Optional<ConsumerPolicy> consumerDetails = Optional.ofNullable(consumerPolicyRepository.findById(consumerId)
@@ -146,7 +146,7 @@ public class PolicyServiceImpl implements PolicyService {
 			return policyDetailsResponse;
 		} else {
 			log.info("End View Policy inside Policy Service");
-			throw new PolicyNotFoundException("Policy is not created or issued for consumer");
+			throw new PolicyException("Policy is not created or issued for consumer");
 
 		}
 
@@ -158,7 +158,7 @@ public class PolicyServiceImpl implements PolicyService {
 		log.info("Start Get Quotes inside Policy Service");
 		log.info("Start Get Quotes Client");
 		ResponseEntity<QuotesResponse> quote = quotesCilent.getQuotesForPolicy(businessValue, propertyValue,
-				propertyValue, token);
+				propertyType, token);
 		log.debug("Quote Value :{}", quote.getBody().getClass());
 		log.info("End Get Quotes Client");
 		QuotesDetailsResponse quotesDetailsResponse = new QuotesDetailsResponse(quote.getBody().getQuotes());

@@ -34,24 +34,6 @@ public class GlobalExceptionalHandler {
 		return new ResponseEntity(body,HttpStatus.NOT_FOUND);
 	}
 	
-	@ExceptionHandler(PolicyNotFoundException.class)
-	public ResponseEntity<Object> handlePolicyNotFoundException(PolicyNotFoundException e){
-		
-		log.info("Start PolicyNotFoundException");
-		String errorMesssgeDescription=e.getLocalizedMessage();
-		Map<String,Object> body=new LinkedHashMap<>();
-		body.put("timestamp", new Date());
-		body.put("error","Sorry! Policy not Found.");
-		
-		if(errorMesssgeDescription==null) {
-			errorMesssgeDescription.toString();
-		}
-		body.put("error-message", errorMesssgeDescription);
-		log.info("End PolicyNotFoundException");
-		return new ResponseEntity(body,HttpStatus.NOT_FOUND);
-	}
-
-	
 	
 	@ExceptionHandler(FeignException.class)
 	public ResponseEntity<Object> handleFeignException(FeignException e){
@@ -61,12 +43,44 @@ public class GlobalExceptionalHandler {
 		Map<String,Object> body=new LinkedHashMap<>();
 		body.put("timestamp", new Date());
 		body.put("error","ConsumerBusinessDetailsNotFoundException");
-		body.put("error-message", "Sorry! Consumer Business details not created for this consumer.");
+		body.put("error-message", "Error Occured");
 		
 		
 		log.info("End FeignException");
 		return new ResponseEntity(body,HttpStatus.NOT_FOUND);
 	}
 	
+	@SuppressWarnings("null")
+	@ExceptionHandler(InvalidTokenException.class)
+	protected ResponseEntity<Object> handleInvalidTokenException(InvalidTokenException ex) {
+		log.info("Start handleInvalidTokenException");
+		Map<String, Object> body = new LinkedHashMap<>();
+		body.put("timestamp", new Date());
+		body.put("error", "Bad Request");
+		body.put("status", HttpStatus.NOT_FOUND);
+		String errorMessageDescription = ex.getLocalizedMessage();
+		if (errorMessageDescription == null)
+			errorMessageDescription.toString();
+		body.put("error-message", errorMessageDescription);
+
+		log.info("End GlobalExceptionHandler");
+		return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+	}
 	
+	@SuppressWarnings("null")
+	@ExceptionHandler(PolicyException.class)
+	protected ResponseEntity<Object> handlePolicyException(PolicyException ex) {
+		log.info("Start GlobalExceptionHandler");
+		Map<String, Object> body = new LinkedHashMap<>();
+		body.put("timestamp", new Date());
+		body.put("error", "Bad Request");
+		body.put("status", HttpStatus.NOT_FOUND);
+		String errorMessageDescription = ex.getLocalizedMessage();
+		if (errorMessageDescription == null)
+			errorMessageDescription.toString();
+		body.put("error-message", errorMessageDescription);
+
+		log.info("End GlobalExceptionHandler");
+		return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
+	}
 }
