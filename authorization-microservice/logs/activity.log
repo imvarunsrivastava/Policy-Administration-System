@@ -1,0 +1,67 @@
+2022-03-03 13:59:46,434 [main] INFO  c.c.a.AuthorizationServiceApplication - Starting AuthorizationServiceApplication using Java 17.0.1 on LTIN270266 with PID 15392 (C:\Users\2068215\git\policy-administration-system\authorization-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\authorization-microservice)
+2022-03-03 13:59:46,439 [main] INFO  c.c.a.AuthorizationServiceApplication - No active profile set, falling back to default profiles: default
+2022-03-03 14:00:03,110 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03 14:00:03,625 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 484 ms. Found 1 JPA repository interfaces.
+2022-03-03 14:00:05,338 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8fea6e5e-29b5-331a-98ee-46666935e09a
+2022-03-03 14:00:07,123 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+2022-03-03 14:00:07,159 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+2022-03-03 14:00:07,163 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03 14:00:07,165 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-03-03 14:00:07,690 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03 14:00:07,691 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 20911 ms
+2022-03-03 14:00:07,807 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03 14:00:08,344 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03 14:00:08,369 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2022-03-03 14:00:09,140 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.4.Final
+2022-03-03 14:00:09,862 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03 14:00:10,387 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03 14:00:13,431 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03 14:00:13,481 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03 14:00:20,693 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03 14:00:21,289 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7db63a01, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fb313e3, org.springframework.security.web.header.HeaderWriterFilter@4e3bc13b, org.springframework.security.web.authentication.logout.LogoutFilter@536f389, com.cts.authorization.config.JwtRequestFilter@2c8e096, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1fd73dcb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2396dc4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@423791, org.springframework.security.web.session.SessionManagementFilter@588614f9, org.springframework.security.web.access.ExceptionTranslationFilter@4468ced2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d48299e]
+2022-03-03 14:00:25,140 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03 14:00:28,658 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03 14:00:28,787 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03 14:00:28,802 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03 14:00:29,864 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03 14:00:29,865 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03 14:00:29,865 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03 14:00:29,866 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03 14:00:29,866 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03 14:00:29,866 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03 14:00:29,867 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03 14:00:31,974 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03 14:00:32,009 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03 14:00:32,037 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03 14:00:32,090 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646296232087 with initial instances count: 0
+2022-03-03 14:00:32,099 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTHORIZATION-MICROSERVICE with eureka with status UP
+2022-03-03 14:00:32,101 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646296232101, current=UP, previous=STARTING]
+2022-03-03 14:00:32,109 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTHORIZATION-MICROSERVICE/host.docker.internal:authorization-microservice:8090: registering service...
+2022-03-03 14:00:32,109 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+2022-03-03 14:00:32,222 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+2022-03-03 14:00:32,225 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8090
+2022-03-03 14:00:32,517 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTHORIZATION-MICROSERVICE/host.docker.internal:authorization-microservice:8090 - registration status: 204
+2022-03-03 14:00:32,666 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03 14:00:32,782 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03 14:00:32,908 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03 14:00:33,864 [main] INFO  c.c.a.AuthorizationServiceApplication - Started AuthorizationServiceApplication in 50.013 seconds (JVM running for 55.216)
+2022-03-03 14:01:02,019 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03 14:01:02,019 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03 14:01:02,020 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03 14:01:02,020 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03 14:01:02,020 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03 14:01:02,021 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2022-03-03 14:01:02,021 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03 14:01:02,050 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03 14:01:25,662 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-03 14:01:25,664 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application AUTHORIZATION-MICROSERVICE with eureka with status DOWN
+2022-03-03 14:01:25,664 [RMI TCP Connection(4)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646296285664, current=DOWN, previous=UP]
+2022-03-03 14:01:25,665 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTHORIZATION-MICROSERVICE/host.docker.internal:authorization-microservice:8090: registering service...
+2022-03-03 14:01:25,679 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTHORIZATION-MICROSERVICE/host.docker.internal:authorization-microservice:8090 - registration status: 204
+2022-03-03 14:01:25,730 [RMI TCP Connection(4)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03 14:01:25,733 [RMI TCP Connection(4)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-03 14:01:25,737 [RMI TCP Connection(4)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-03 14:01:25,738 [RMI TCP Connection(4)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-03 14:01:28,753 [RMI TCP Connection(4)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2022-03-03 14:01:28,773 [RMI TCP Connection(4)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTHORIZATION-MICROSERVICE/host.docker.internal:authorization-microservice:8090 - deregister  status: 200
+2022-03-03 14:01:28,873 [RMI TCP Connection(4)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

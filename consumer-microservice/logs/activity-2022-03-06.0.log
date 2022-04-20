@@ -1,0 +1,26 @@
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONSUMER-MICROSERVICE with eureka with status DOWN
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646509043945, current=DOWN, previous=UP]
+2022-03-05_10-42-21 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-05_10-42-21 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - deregister  status: 200
+2022-03-05_10-42-21 [RMI TCP Connection(826)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

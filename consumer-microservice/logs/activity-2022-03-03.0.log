@@ -1,0 +1,581 @@
+2022-03-03_15-01-59 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.2.Final
+2022-03-03_15-01-59 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Starting ConsumerMicroserviceApplication using Java 17.0.1 on LTIN270266 with PID 628 (C:\Users\2068215\git\policy-administration-system\consumer-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\consumer-microservice)
+2022-03-03_15-01-59 [main] INFO  c.c.c.ConsumerMicroserviceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-03-03_15-01-59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03_15-01-59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 337 ms. Found 5 JPA repository interfaces.
+2022-03-03_15-01-59 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=349f2074-400b-35eb-86fe-cddc4fd7833d
+2022-03-03_15-01-59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2022-03-03_15-01-59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2022-03-03_15-01-59 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03_15-01-59 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-03_15-01-59 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03_15-01-59 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3548 ms
+2022-03-03_15-01-59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03_15-01-59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03_15-01-59 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:consumerDb'
+2022-03-03_15-01-59 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03_15-01-59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-03_15-01-59 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03_15-01-59 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03_15-01-59 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03_15-01-59 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_15-01-59 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'AUTHORIZATION-MICROSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2022-03-03_15-01-59 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03_15-01-59 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03_15-01-59 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03_15-01-59 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03_15-01-59 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646299929435 with initial instances count: 1
+2022-03-03_15-01-59 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONSUMER-MICROSERVICE with eureka with status UP
+2022-03-03_15-01-59 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646299929441, current=UP, previous=STARTING]
+2022-03-03_15-01-59 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_15-01-59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2022-03-03_15-01-59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2022-03-03_15-01-59 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2022-03-03_15-01-59 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_15-01-59 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03_15-01-59 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03_15-01-59 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03_15-01-59 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Started ConsumerMicroserviceApplication in 11.321 seconds (JVM running for 12.892)
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONSUMER-MICROSERVICE with eureka with status DOWN
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646302350551, current=DOWN, previous=UP]
+2022-03-03_15-01-59 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_15-01-59 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - deregister  status: 200
+2022-03-03_15-01-59 [RMI TCP Connection(44)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2022-03-03_19-59-14 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.2.Final
+2022-03-03_19-59-14 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Starting ConsumerMicroserviceApplication using Java 17.0.1 on LTIN270266 with PID 21912 (C:\Users\2068215\git\policy-administration-system\consumer-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\consumer-microservice)
+2022-03-03_19-59-14 [main] INFO  c.c.c.ConsumerMicroserviceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-03-03_19-59-14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03_19-59-14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 613 ms. Found 5 JPA repository interfaces.
+2022-03-03_19-59-14 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=349f2074-400b-35eb-86fe-cddc4fd7833d
+2022-03-03_19-59-14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2022-03-03_19-59-14 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2022-03-03_19-59-14 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03_19-59-14 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-03_19-59-14 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03_19-59-14 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4944 ms
+2022-03-03_19-59-14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03_19-59-14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03_19-59-14 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:consumerDb'
+2022-03-03_19-59-14 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03_19-59-14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-03_19-59-14 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03_19-59-14 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03_19-59-14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03_19-59-14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_19-59-14 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'AUTHORIZATION-MICROSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2022-03-03_19-59-14 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03_19-59-14 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03_19-59-14 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03_19-59-14 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03_19-59-14 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646317767195 with initial instances count: 0
+2022-03-03_19-59-14 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONSUMER-MICROSERVICE with eureka with status UP
+2022-03-03_19-59-14 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646317767209, current=UP, previous=STARTING]
+2022-03-03_19-59-14 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2022-03-03_19-59-14 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_19-59-14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2022-03-03_19-59-14 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2022-03-03_19-59-14 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_19-59-14 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03_19-59-14 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03_19-59-14 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03_19-59-14 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Started ConsumerMicroserviceApplication in 14.83 seconds (JVM running for 16.979)
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_19-59-14 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_19-59-14 [http-nio-8091-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03_19-59-14 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-03_19-59-14 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-03-03_19-59-14 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_19-59-14 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_19-59-14 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_19-59-14 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_19-59-14 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_19-59-14 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_19-59-14 [RMI TCP Connection(69)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-03_19-59-14 [RMI TCP Connection(69)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONSUMER-MICROSERVICE with eureka with status DOWN
+2022-03-03_19-59-14 [RMI TCP Connection(69)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646321691455, current=DOWN, previous=UP]
+2022-03-03_19-59-14 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_19-59-14 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_19-59-14 [RMI TCP Connection(69)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_19-59-14 [RMI TCP Connection(69)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-03_19-59-14 [RMI TCP Connection(69)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-03_19-59-14 [RMI TCP Connection(69)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-03_22-42-03 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.2.Final
+2022-03-03_22-42-03 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Starting ConsumerMicroserviceApplication using Java 17.0.1 on LTIN270266 with PID 24820 (C:\Users\2068215\git\policy-administration-system\consumer-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\consumer-microservice)
+2022-03-03_22-42-03 [main] INFO  c.c.c.ConsumerMicroserviceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-03-03_22-42-03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03_22-42-03 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 380 ms. Found 5 JPA repository interfaces.
+2022-03-03_22-42-03 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=349f2074-400b-35eb-86fe-cddc4fd7833d
+2022-03-03_22-42-03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2022-03-03_22-42-03 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2022-03-03_22-42-03 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03_22-42-03 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-03_22-42-03 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03_22-42-03 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3957 ms
+2022-03-03_22-42-03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03_22-42-03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03_22-42-03 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:consumerDb'
+2022-03-03_22-42-03 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03_22-42-03 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-03_22-42-03 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03_22-42-03 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03_22-42-03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03_22-42-03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_22-42-03 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'AUTHORIZATION-MICROSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2022-03-03_22-42-03 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03_22-42-03 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03_22-42-03 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03_22-42-03 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03_22-42-03 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646327533301 with initial instances count: 0
+2022-03-03_22-42-03 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONSUMER-MICROSERVICE with eureka with status UP
+2022-03-03_22-42-03 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646327533305, current=UP, previous=STARTING]
+2022-03-03_22-42-03 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2022-03-03_22-42-03 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_22-42-03 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2022-03-03_22-42-03 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2022-03-03_22-42-03 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_22-42-03 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03_22-42-03 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03_22-42-03 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03_22-42-03 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Started ConsumerMicroserviceApplication in 11.528 seconds (JVM running for 13.271)
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_22-42-03 [DiscoveryClient-CacheRefreshExecutor-0] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_22-42-03 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-42-03 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-03_22-42-03 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONSUMER-MICROSERVICE with eureka with status DOWN
+2022-03-03_22-42-03 [RMI TCP Connection(7)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646327837692, current=DOWN, previous=UP]
+2022-03-03_22-42-03 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_22-42-03 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_22-42-03 [RMI TCP Connection(7)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_22-42-03 [RMI TCP Connection(7)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-03_22-42-03 [RMI TCP Connection(7)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-03_22-42-03 [RMI TCP Connection(7)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-03_22-47-54 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.2.Final
+2022-03-03_22-47-54 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Starting ConsumerMicroserviceApplication using Java 17.0.1 on LTIN270266 with PID 3928 (C:\Users\2068215\git\policy-administration-system\consumer-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\consumer-microservice)
+2022-03-03_22-47-54 [main] INFO  c.c.c.ConsumerMicroserviceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-03-03_22-47-54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03_22-47-54 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 284 ms. Found 5 JPA repository interfaces.
+2022-03-03_22-47-54 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=349f2074-400b-35eb-86fe-cddc4fd7833d
+2022-03-03_22-47-54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2022-03-03_22-47-54 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2022-03-03_22-47-54 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03_22-47-54 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-03_22-47-54 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03_22-47-54 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2979 ms
+2022-03-03_22-47-54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03_22-47-54 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03_22-47-54 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:consumerDb'
+2022-03-03_22-47-54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03_22-47-54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-03_22-47-54 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03_22-47-54 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03_22-47-54 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03_22-47-54 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_22-47-54 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'AUTHORIZATION-MICROSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2022-03-03_22-47-54 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03_22-47-54 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03_22-47-54 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03_22-47-54 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03_22-47-54 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646327883615 with initial instances count: 2
+2022-03-03_22-47-54 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONSUMER-MICROSERVICE with eureka with status UP
+2022-03-03_22-47-54 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646327883619, current=UP, previous=STARTING]
+2022-03-03_22-47-54 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2022-03-03_22-47-54 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_22-47-54 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2022-03-03_22-47-54 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2022-03-03_22-47-54 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_22-47-54 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03_22-47-54 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03_22-47-54 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03_22-47-54 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Started ConsumerMicroserviceApplication in 10.116 seconds (JVM running for 11.461)
+2022-03-03_22-47-54 [http-nio-8091-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03_22-47-54 [http-nio-8091-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-03_22-47-54 [http-nio-8091-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-03-03_22-47-54 [http-nio-8091-exec-1] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-47-54 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_22-47-54 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_22-47-54 [http-nio-8091-exec-6] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-47-54 [http-nio-8091-exec-6] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_22-47-54 [http-nio-8091-exec-6] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-47-54 [http-nio-8091-exec-6] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_22-47-54 [http-nio-8091-exec-6] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_22-47-54 [http-nio-8091-exec-6] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-47-54 [http-nio-8091-exec-5] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-47-54 [http-nio-8091-exec-5] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_22-47-54 [http-nio-8091-exec-5] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-47-54 [http-nio-8091-exec-5] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_22-47-54 [http-nio-8091-exec-5] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_22-47-54 [http-nio-8091-exec-5] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-47-54 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-47-54 [http-nio-8091-exec-9] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-47-54 [http-nio-8091-exec-9] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_22-47-54 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-47-54 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_22-47-54 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_22-47-54 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONSUMER-MICROSERVICE with eureka with status DOWN
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646328268898, current=DOWN, previous=UP]
+2022-03-03_22-47-54 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_22-47-54 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - deregister  status: 200
+2022-03-03_22-47-54 [RMI TCP Connection(9)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2022-03-03_22-54-47 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.2.Final
+2022-03-03_22-54-47 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Starting ConsumerMicroserviceApplication using Java 17.0.1 on LTIN270266 with PID 14476 (C:\Users\2068215\git\policy-administration-system\consumer-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\consumer-microservice)
+2022-03-03_22-54-47 [main] INFO  c.c.c.ConsumerMicroserviceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-03-03_22-54-47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03_22-54-47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 294 ms. Found 5 JPA repository interfaces.
+2022-03-03_22-54-47 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=349f2074-400b-35eb-86fe-cddc4fd7833d
+2022-03-03_22-54-47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2022-03-03_22-54-47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2022-03-03_22-54-47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03_22-54-47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-03_22-54-47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03_22-54-47 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3115 ms
+2022-03-03_22-54-47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03_22-54-47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03_22-54-47 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:consumerDb'
+2022-03-03_22-54-47 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03_22-54-47 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-03_22-54-47 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03_22-54-47 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03_22-54-47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03_22-54-47 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_22-54-47 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'AUTHORIZATION-MICROSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2022-03-03_22-54-47 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03_22-54-47 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03_22-54-47 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03_22-54-47 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03_22-54-47 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646328296469 with initial instances count: 2
+2022-03-03_22-54-47 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONSUMER-MICROSERVICE with eureka with status UP
+2022-03-03_22-54-47 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646328296473, current=UP, previous=STARTING]
+2022-03-03_22-54-47 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2022-03-03_22-54-47 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_22-54-47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2022-03-03_22-54-47 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2022-03-03_22-54-47 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_22-54-47 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03_22-54-47 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03_22-54-47 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03_22-54-47 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Started ConsumerMicroserviceApplication in 10.367 seconds (JVM running for 11.834)
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_22-54-47 [http-nio-8091-exec-2] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-54-47 [http-nio-8091-exec-5] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-54-47 [http-nio-8091-exec-5] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_22-54-47 [http-nio-8091-exec-5] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_22-54-47 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-54-47 [http-nio-8091-exec-8] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-54-47 [http-nio-8091-exec-8] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_22-54-47 [http-nio-8091-exec-8] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-54-47 [http-nio-8091-exec-8] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_22-54-47 [http-nio-8091-exec-8] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_22-54-47 [http-nio-8091-exec-8] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_22-54-47 [http-nio-8091-exec-1] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_22-54-47 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_22-54-47 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_22-54-47 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-54-47 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-54-47 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONSUMER-MICROSERVICE with eureka with status DOWN
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646329600981, current=DOWN, previous=UP]
+2022-03-03_22-54-47 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_22-54-47 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - deregister  status: 200
+2022-03-03_22-54-47 [RMI TCP Connection(26)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2022-03-03_23-18-32 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.2.Final
+2022-03-03_23-18-32 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Starting ConsumerMicroserviceApplication using Java 17.0.1 on LTIN270266 with PID 25648 (C:\Users\2068215\git\policy-administration-system\consumer-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\consumer-microservice)
+2022-03-03_23-18-32 [main] INFO  c.c.c.ConsumerMicroserviceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-03-03_23-18-32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03_23-18-32 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 295 ms. Found 5 JPA repository interfaces.
+2022-03-03_23-18-32 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=349f2074-400b-35eb-86fe-cddc4fd7833d
+2022-03-03_23-18-32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2022-03-03_23-18-32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2022-03-03_23-18-32 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03_23-18-32 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-03_23-18-32 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03_23-18-32 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3138 ms
+2022-03-03_23-18-32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03_23-18-32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03_23-18-32 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:consumerDb'
+2022-03-03_23-18-32 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03_23-18-32 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-03_23-18-32 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03_23-18-32 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03_23-18-32 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03_23-18-32 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_23-18-32 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'AUTHORIZATION-MICROSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2022-03-03_23-18-32 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03_23-18-32 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03_23-18-32 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03_23-18-32 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03_23-18-32 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646329721916 with initial instances count: 1
+2022-03-03_23-18-32 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONSUMER-MICROSERVICE with eureka with status UP
+2022-03-03_23-18-32 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646329721921, current=UP, previous=STARTING]
+2022-03-03_23-18-32 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2022-03-03_23-18-32 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_23-18-32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2022-03-03_23-18-32 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2022-03-03_23-18-32 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_23-18-32 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03_23-18-32 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03_23-18-32 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03_23-18-32 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Started ConsumerMicroserviceApplication in 10.262 seconds (JVM running for 11.67)
+2022-03-03_23-18-32 [http-nio-8091-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03_23-18-32 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-03_23-18-32 [http-nio-8091-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-03-03_23-18-32 [http-nio-8091-exec-2] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-18-32 [http-nio-8091-exec-2] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-18-32 [http-nio-8091-exec-2] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-18-32 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-18-32 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_23-18-32 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-18-32 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-18-32 [http-nio-8091-exec-3] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-18-32 [http-nio-8091-exec-3] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-18-32 [http-nio-8091-exec-4] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-18-32 [http-nio-8091-exec-4] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-18-32 [http-nio-8091-exec-4] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-18-32 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_23-18-32 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_23-18-32 [RMI TCP Connection(19)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-03-03_23-18-32 [RMI TCP Connection(19)-127.0.0.1] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application CONSUMER-MICROSERVICE with eureka with status DOWN
+2022-03-03_23-18-32 [RMI TCP Connection(19)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646330587118, current=DOWN, previous=UP]
+2022-03-03_23-18-32 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_23-18-32 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_23-18-32 [RMI TCP Connection(19)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_23-18-32 [RMI TCP Connection(19)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-03-03_23-18-32 [RMI TCP Connection(19)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-03-03_23-18-32 [RMI TCP Connection(19)-127.0.0.1] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2022-03-03_23-37-19 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.2.Final
+2022-03-03_23-37-19 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Starting ConsumerMicroserviceApplication using Java 17.0.1 on LTIN270266 with PID 15776 (C:\Users\2068215\git\policy-administration-system\consumer-microservice\target\classes started by 2068215 in C:\Users\2068215\git\policy-administration-system\consumer-microservice)
+2022-03-03_23-37-19 [main] INFO  c.c.c.ConsumerMicroserviceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-03-03_23-37-19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-03-03_23-37-19 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 331 ms. Found 5 JPA repository interfaces.
+2022-03-03_23-37-19 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=349f2074-400b-35eb-86fe-cddc4fd7833d
+2022-03-03_23-37-19 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8091 (http)
+2022-03-03_23-37-19 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2022-03-03_23-37-19 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-03-03_23-37-19 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-03-03_23-37-19 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-03-03_23-37-19 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3663 ms
+2022-03-03_23-37-19 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-03-03_23-37-19 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-03-03_23-37-19 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:consumerDb'
+2022-03-03_23-37-19 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-03-03_23-37-19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-03-03_23-37-19 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-03-03_23-37-19 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-03-03_23-37-19 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-03-03_23-37-19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-03_23-37-19 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'AUTHORIZATION-MICROSERVICE' URL not provided. Will try picking an instance via load-balancing.
+2022-03-03_23-37-19 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-03-03_23-37-19 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2022-03-03_23-37-19 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2022-03-03_23-37-19 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2022-03-03_23-37-19 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1646330849110 with initial instances count: 2
+2022-03-03_23-37-19 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application CONSUMER-MICROSERVICE with eureka with status UP
+2022-03-03_23-37-19 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1646330849114, current=UP, previous=STARTING]
+2022-03-03_23-37-19 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2022-03-03_23-37-19 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091: registering service...
+2022-03-03_23-37-19 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8091 (http) with context path ''
+2022-03-03_23-37-19 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2022-03-03_23-37-19 [DiscoveryClient-InstanceInfoReplicator-0] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_CONSUMER-MICROSERVICE/host.docker.internal:consumer-microservice:8091 - registration status: 204
+2022-03-03_23-37-19 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2022-03-03_23-37-19 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2022-03-03_23-37-19 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2022-03-03_23-37-19 [main] INFO  c.c.c.ConsumerMicroserviceApplication - Started ConsumerMicroserviceApplication in 11.117 seconds (JVM running for 12.605)
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.controller.ConsumerController - Start createBusinessProperty inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.s.BusinessPropertyServiceImpl - Start createBusinessProperty inside BusinessPropertyImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.s.BusinessPropertyServiceImpl - Start calPropertyValue
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.s.BusinessPropertyServiceImpl - End calPropertyValue
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.s.BusinessPropertyServiceImpl - End createBusinessProperty inside BusinessPropertyImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.controller.ConsumerController - End createBusinessProperty inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.controller.ConsumerController - Start createBusinessProperty inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.s.BusinessPropertyServiceImpl - Start createBusinessProperty inside BusinessPropertyImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.s.BusinessPropertyServiceImpl - Start calPropertyValue
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.s.BusinessPropertyServiceImpl - End calPropertyValue
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.s.BusinessPropertyServiceImpl - End createBusinessProperty inside BusinessPropertyImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.controller.ConsumerController - End createBusinessProperty inside ConsumerController
+2022-03-03_23-37-19 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_23-37-19 [http-nio-8091-exec-2] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-2] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-2] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_23-37-19 [http-nio-8091-exec-3] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-4] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-4] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-4] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-7] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-8] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-37-19 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2022-03-03_23-37-19 [http-nio-8091-exec-9] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-9] INFO  c.c.c.controller.ConsumerController - End createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - Start CalBusinessValue
+2022-03-03_23-37-19 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End CalBusinessValue
+2022-03-03_23-37-19 [http-nio-8091-exec-9] INFO  c.c.c.s.ConsumerBusinessServiceImpl - End createConsumerBusiness inside ConsumerServiceImpl
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.controller.ConsumerController - Start createConsumerBusiness inside ConsumerController
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - Start GlobalExceptionHandler
+2022-03-03_23-37-19 [http-nio-8091-exec-1] INFO  c.c.c.e.GlobalExceptionHandler - End GlobalExceptionHandler
+2022-03-03_23-37-19 [AsyncResolver-bootstrap-executor-0] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
